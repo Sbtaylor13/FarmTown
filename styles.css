@@ -140,6 +140,15 @@ body {
     left: 2%;
 }
 
+#tutorial{
+    position: absolute;
+    background-color: #a2c4b7;
+    bottom: 0%;
+    left: 0%;
+    width: 40%;
+    height: 10%;
+}
+
 @keyframes fadeOutUp {
     from {
       opacity: 1;

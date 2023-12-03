@@ -14,6 +14,9 @@ const htmlMoney = document.getElementById('money');
 const htmlClicks = document.getElementById('clicks');
 const htmlWater = document.getElementById('water');
 
+const tutorialBlock = document.getElementById("tutorial");
+const tutorialText = document.getElementById("tut-text");
+
 // Function to update the plot's image
 function updatePlot() {
     if(water > 0){
@@ -21,6 +24,10 @@ function updatePlot() {
         if(currentState == 0){
             money = money + moneyAdder;
             triggerOutwardTransition();
+            if (tutorialBlock && tutorialText){
+                tutorialBlock.remove();
+                tutorialText.remove();
+            }
         }
         water --;
         clicks = clicks + clickAdder;
@@ -65,7 +72,6 @@ plot.addEventListener('click', function(){
 });
 
 function clickPlus(){
-    console.log("test");
     var textElement = document.createElement('div');
     textElement.className = 'click-visual';
     textElement.innerHTML = '<p>+' + clickAdder + '</p>';
@@ -97,7 +103,6 @@ function wiggleElement(element) {
 }
 
 function clicked(event){
-    console.log("test2");
     const clickedImage = event.target;
     if (clickedImage.classList.contains('clickable')) {
         if (clickedImage.alt === 'x2clicks') {

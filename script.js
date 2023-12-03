@@ -5,21 +5,21 @@ let money = 0;
 let water = 101;
 let clicks = -1;
 var clickAdder = 1;
+let moneyAdder = 1;
 let wateringTimer;
-
-let CMoney, CWater, CClicks = 0;
 
 // Get the plot element
 const plot = document.getElementById('plot');
 const htmlMoney = document.getElementById('money');
 const htmlClicks = document.getElementById('clicks');
 const htmlWater = document.getElementById('water');
+
 // Function to update the plot's image
 function updatePlot() {
     if(water > 0){
         currentState = (currentState + 1) % stages.length;
         if(currentState == 0){
-            money++;
+            money = money + moneyAdder;
             triggerOutwardTransition();
         }
         water --;
@@ -28,6 +28,16 @@ function updatePlot() {
         htmlMoney.textContent = "Gold: " + money;
         plot.style.backgroundImage = `url(${stages[currentState]})`;
     }
+    updateWaterLevel();
+}
+
+function updateWaterLevel() {
+    let waterLevel = document.getElementById('water-level');
+    let waterPercentage = water * 3.2;
+    waterLevel.style.height = `${waterPercentage}px`;
+}
+function addWaterAutomatically(){
+    if(water < 100){water++;}
     updateWaterLevel();
 }
 
@@ -44,36 +54,21 @@ function triggerOutwardTransition() {
         spinImage.style.opacity = 0;
     }
 }
-
-function updateWaterLevel() {
-    let waterLevel = document.getElementById('water-level');
-    let waterPercentage = water * 3.2; // Use water directly
-    waterLevel.style.height = `${waterPercentage}px`;
-}
-
-function addWaterAutomatically(){
-    if(water < 100){
-        water++;
-        //htmlWater.textContent = water;
-    }
-    updateWaterLevel();
-}
-
-
-
 plot.addEventListener('click', function(){
     updatePlot();
     clearInterval(wateringTimer);
     wateringTimer = setInterval(addWaterAutomatically, 1000);
-    clickPlus();
-
+    if (water != 0){
+        clickPlus();
+    }
+    
 });
 
 function clickPlus(){
     console.log("test");
     var textElement = document.createElement('div');
     textElement.className = 'click-visual';
-    textElement.innerHTML = '<p>+1</p>';
+    textElement.innerHTML = '<p>+' + clickAdder + '</p>';
     document.body.appendChild(textElement);
     textElement.style.opacity = '0';
     textElement.style.fontSize = '30px';
@@ -106,11 +101,30 @@ function clicked(event){
     const clickedImage = event.target;
     if (clickedImage.classList.contains('clickable')) {
         if (clickedImage.alt === 'x2clicks') {
-          clickAdder = clickAdder + 1;
+            if(money >= 20){
+                clickAdder = clickAdder + clickAdder;
+                money -=20;
+                htmlMoney.textContent = "Gold: " + money;
+            }
         } else if (clickedImage.alt === 'x2money') {
-          console.log(`throw it backb`);
+            if(money >= 30){
+                moneyAdder = moneyAdder + moneyAdder;
+                money -=30;
+                htmlMoney.textContent = "Gold: " + money;
+            }
         }else if (clickedImage.alt === 'fillwater') {
-            console.log(`throw it backc`);
+            if(money >= 20){
+                water = 100;
+                money -=20;
+                htmlMoney.textContent = "Gold: " + money;
+            }
+        }
+        else if (clickedImage.alt === 'plot') {
+            console.log(`throw it backd`);
+            updatePlot();
+            clearInterval(wateringTimer);
+            wateringTimer = setInterval(addWaterAutomatically, 1000);
+            clickPlus();
         }
   
     }

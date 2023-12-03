@@ -15,16 +15,8 @@
         <img src="canOver.png" id="canOver">
     </div>
 
-    <div id="bar" onclick="clicked(event)">
-        <div id="top-bar"></div>
-        <h1 id="money"></h1>
-        <img class="clickable" src="x2clicks.png" alt="x2clicks" id="x2c">
-        <img class="clickable" src="x2money.png" alt="x2money" id="x2m">
-        <img class="clickable" src="fillwater.png" alt="fillwater" id="fw">
-    </div>
-
     <div id="container"></div>
-    <div class="plot" id="plot" onclick="wiggleElement(this)"></div>
+    
     <h1 id="water"></h1>
     <div id="seed">
         <img src="seed.png" id="seed-image">
@@ -32,9 +24,16 @@
  
     </div>
 
-    <script src="script.js"></script>
-    
+    <div id="bar" onclick="clicked(event)">
+        <div id="top-bar"></div>
+        <h1 id="money"></h1>
+        <img class="clickable" src="x2clicks.png" alt="x2clicks" id="x2c">
+        <img class="clickable" src="x2money.png" alt="x2money" id="x2m">
+        <img class="clickable" src="fillwater.png" alt="fillwater" id="fw">
+        <div class="plot" id="plot" alt="plot" onclick="wiggleElement(this)"></div>
+    </div>
 
+    <script src="script.js"></script>
     
 </body>
 </html>

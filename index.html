@@ -1,44 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Plant Growth</title>
-</head>
-<body>
-    <div id="right-bar"></div>
-    
-    <div id="canUnder">
-        <img src="canUnder.png" id="canUnder-image">
-        <div class="water-level" id="water-level"></div>
-        <img src="canOver.png" id="canOver">
-    </div>
-
-    <div id="container"></div>
-    
-    <h1 id="water"></h1>
-    <div id="seed">
-        <img src="seed.png" id="seed-image">
-        <h1 id="clicks">Your Clicks</h1>
- 
-    </div>
-
-    <div id="bar" onclick="clicked(event)">
-        <div id="top-bar"></div>
-        <h1 id="money"></h1>
-        <img class="clickable" src="x2clicks.png" alt="x2clicks" id="x2c">
-        <img class="clickable" src="x2money.png" alt="x2money" id="x2m">
-        <img class="clickable" src="fillwater.png" alt="fillwater" id="fw">
-        <div class="plot" id="plot" alt="plot" onclick="wiggleElement(this)"></div>
-    </div>
-
-    <div id="tutorial">
-        <h3 id="tut-text">Click the plot on the right to grow the tree. Every new tree cycle gives you one gold. You can spend your gold by clicking the upgrades at the top</h3>
-    </div>
-    
-
-    <script src="script.js"></script>
-    
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="styles.css">
+      <title>Plant Growth</title>
+   </head>
+   <body>
+      <div id="right-bar"></div>
+      <div id="canUnder">
+         <img src="canUnder.png" id="canUnder-image">
+         <div class="water-level" id="water-level"></div>
+         <img src="canOver.png" id="canOver">
+      </div>
+      <div id="container"></div>
+      <h1 id="water"></h1>
+      <div id="seed">
+         <img src="seed.png" id="seed-image">
+         <h1 id="clicks">Your Clicks</h1>
+      </div>
+      <div id="bar" onclick="clicked(event)">
+         <div id="top-bar"></div>
+         <h1 id="money"></h1>
+         <img class="clickable" src="x2clicks.png" alt="x2clicks" id="x2c">
+         <img class="clickable" src="x2money.png" alt="x2money" id="x2m">
+         <img class="clickable" src="fillwater.png" alt="fillwater" id="fw">
+         <div class="plot" id="plot" alt="plot" onclick="wiggleElement(this)"></div>
+      </div>
+      <div id="tutorial">
+         <h3 id="tut-text">Click the plot on the right to grow the tree. Every new tree cycle gives you one gold. You can spend your gold by clicking the upgrades at the top</h3>
+      </div>
+      <script src="script.js"></script>
+   </body>
 </html>

@@ -26,36 +26,33 @@ body {
     background-size: cover;
     cursor: pointer;
 }
-
 .wiggle {
     animation: wiggle .4s ease-in-out;
-  }
-
+}
 @keyframes wiggle {
     0%, 100% {
-      transform: translateX(0);
-    }
+        transform: translateX(0);
+   }
     25% {
-      transform: translateX(-3px) rotate(3deg);
-    }
+        transform: translateX(-3px) rotate(3deg);
+   }
     50% {
-      transform: translateX(3px) rotate(-3deg);
-    }
+        transform: translateX(3px) rotate(-3deg);
+   }
     75% {
-      transform: translateX(-3px) rotate(3deg);
-    }
+        transform: translateX(-3px) rotate(3deg);
+   }
 }
-
 #container {
     position: fixed;
     width: 100vw;
     height: 100vh;
     transform: rotate(90deg) linear;
-  }
+}
 .spin-image {
     position: fixed;
-    width: 75px; 
-    height: 75px; 
+    width: 75px;
+    height: 75px;
     left: 72%;
     top: 55%;
     background-image: url(seed1.png);
@@ -75,11 +72,13 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #efd4c1;
-    font-size: 80px; /* Set the font size */
-    font-weight: bold; /* Set the font weight if needed */
-    z-index: 1; /* Place the text on top of the image */
+    font-size: 80px;
+   /* Set the font size */
+    font-weight: bold;
+   /* Set the font weight if needed */
+    z-index: 1;
+   /* Place the text on top of the image */
 }
-
 #bar{
     position: fixed;
     width: 100%;
@@ -90,7 +89,6 @@ body {
     position: relative;
     top: 0%;
     left: 5%;
-    
     font-size: 500%;
     color: rgb(255, 250, 247);
 }
@@ -100,7 +98,6 @@ body {
     width: 100%;
     height: 20%;
     top:0%;
-
 }
 #x2c{
     position: relative;
@@ -121,13 +118,18 @@ body {
     position: absolute;
     left: 0%;
     top: 80;
-    bottom: 5%; /* Fix it to the bottom */
+    bottom: 5%;
+   /* Fix it to the bottom */
     width: 430px;
-    /*width: 430px;*/
+   /*width: 430px;
+   */
     background-color: #20d0d6;
-    transform-origin: bottom; /* Set the transformation origin to the bottom */
-    transform: scaleY(1); /* Initially full height */
-    transition: transform 0.5s; /* Add a transition for smoother update */
+    transform-origin: bottom;
+   /* Set the transformation origin to the bottom */
+    transform: scaleY(1);
+   /* Initially full height */
+    transition: transform 0.5s;
+   /* Add a transition for smoother update */
 }
 #canUnder{
     position: fixed;
@@ -139,7 +141,6 @@ body {
     top: 19%;
     left: 2%;
 }
-
 #tutorial{
     position: absolute;
     background-color: #a2c4b7;
@@ -148,14 +149,13 @@ body {
     width: 40%;
     height: 10%;
 }
-
 @keyframes fadeOutUp {
     from {
-      opacity: 1;
-      transform: translateY(0);
-    }
+        opacity: 1;
+        transform: translateY(0);
+   }
     to {
-      opacity: 0;
-      transform: translateY(-30px);
-    }
-  }
+        opacity: 0;
+        transform: translateY(-30px);
+   }
+}

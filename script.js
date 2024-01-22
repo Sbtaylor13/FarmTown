@@ -19,17 +19,17 @@ const tutorialText = document.getElementById("tut-text");
 
 // Function to update the plot's image
 function updatePlot() {
-    if(water > 0){
+    if (water > 0) {
         currentState = (currentState + 1) % stages.length;
-        if(currentState == 0){
+        if (currentState == 0) {
             money = money + moneyAdder;
             triggerOutwardTransition();
-            if (tutorialBlock && tutorialText){
+            if (tutorialBlock && tutorialText) {
                 tutorialBlock.remove();
                 tutorialText.remove();
             }
         }
-        water --;
+        water--;
         clicks = clicks + clickAdder;
         htmlClicks.textContent = clicks;
         htmlMoney.textContent = "Gold: " + money;
@@ -43,8 +43,11 @@ function updateWaterLevel() {
     let waterPercentage = water * 3.2;
     waterLevel.style.height = `${waterPercentage}px`;
 }
-function addWaterAutomatically(){
-    if(water < 100){water++;}
+
+function addWaterAutomatically() {
+    if (water < 100) {
+        water++;
+    }
     updateWaterLevel();
 }
 
@@ -61,17 +64,17 @@ function triggerOutwardTransition() {
         spinImage.style.opacity = 0;
     }
 }
-plot.addEventListener('click', function(){
+plot.addEventListener('click', function() {
     updatePlot();
     clearInterval(wateringTimer);
     wateringTimer = setInterval(addWaterAutomatically, 1000);
-    if (water != 0){
+    if (water != 0) {
         clickPlus();
     }
-    
+
 });
 
-function clickPlus(){
+function clickPlus() {
     var textElement = document.createElement('div');
     textElement.className = 'click-visual';
     textElement.innerHTML = '<p>+' + clickAdder + '</p>';
@@ -87,50 +90,49 @@ function clickPlus(){
     setTimeout(function() {
         textElement.style.animation = 'fadeInDown .75s ease-out';
         textElement.parentNode.removeChild(textElement);
-    }, 1000); 
+    }, 1000);
 }
 
 updatePlot();
 wateringTimer = setInterval(addWaterAutomatically, 1000);
 
 function wiggleElement(element) {
-    if(currentState == 3){
+    if (currentState == 3) {
         element.classList.add('wiggle');
         setTimeout(() => {
-        element.classList.remove('wiggle');
+            element.classList.remove('wiggle');
         }, 400);
     }
 }
 
-function clicked(event){
+function clicked(event) {
     const clickedImage = event.target;
     if (clickedImage.classList.contains('clickable')) {
         if (clickedImage.alt === 'x2clicks') {
-            if(money >= 20){
+            if (money >= 20) {
                 clickAdder = clickAdder + clickAdder;
-                money -=20;
+                money -= 20;
                 htmlMoney.textContent = "Gold: " + money;
             }
         } else if (clickedImage.alt === 'x2money') {
-            if(money >= 30){
+            if (money >= 30) {
                 moneyAdder = moneyAdder + moneyAdder;
-                money -=30;
+                money -= 30;
                 htmlMoney.textContent = "Gold: " + money;
             }
-        }else if (clickedImage.alt === 'fillwater') {
-            if(money >= 20){
+        } else if (clickedImage.alt === 'fillwater') {
+            if (money >= 20) {
                 water = 100;
-                money -=20;
+                money -= 20;
                 htmlMoney.textContent = "Gold: " + money;
             }
-        }
-        else if (clickedImage.alt === 'plot') {
+        } else if (clickedImage.alt === 'plot') {
             console.log(`throw it backd`);
             updatePlot();
             clearInterval(wateringTimer);
             wateringTimer = setInterval(addWaterAutomatically, 1000);
             clickPlus();
         }
-  
+
     }
-  }
+}
